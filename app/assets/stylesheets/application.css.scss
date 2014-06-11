@@ -18,7 +18,7 @@
 @import 'neat';
 
 body {
-  background-color: #4CFCCA;
+  background-color: lightyellow;
 }
 .body_content {
   @include outer-container;
@@ -27,21 +27,22 @@ body {
   h1 {
     text-align: center;
     font-family: 'Satisfy', cursive;
-    color: white;
+    color: black;
     font-size: 400%;
   }
 }
 
 h1 {
   font-family: 'Satisfy', cursive;
-  color: white;
+  color: #0D0B31;
 }
 
 header.navigation {
   $navigation-padding: 1em;
-  $navigation-background: desaturate(darken($base-accent-color, 20), 30);
-  $navigation-color: transparentize(white, 0.3);
-  $navigation-color-hover: white;
+  $navigation-background: lightyellow;
+//  desaturate(darken($base-accent-color, 20), 30);
+  $navigation-color: transparentize(black, 0.3);
+  $navigation-color-hover: black;
   $navigation-height: 60px;
   $navigation-nav-button-background: $base-accent-color;
   $navigation-nav-button-background-hover: lighten($navigation-background, 10);
@@ -53,10 +54,11 @@ header.navigation {
   $horizontal-bar-mode: $large-screen;
 
   background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
+  border-bottom: $navigation-background;
+//  1px solid darken($navigation-background, 10);
   font-family: 'Satisfy', cursive;
   font-weight: bold;
-  font-size: 110%;
+  font-size: 120%;
   height: $navigation-height;
   width: 100%;
   z-index: 999;
@@ -72,11 +74,12 @@ header.navigation {
     float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;
-    padding-right: 2em;
+    padding-right: 4em;
 
     h1 {
       max-height: $navigation-height;
       padding: .18em 0;
+      font-size: 200%;
     }
   }
 
@@ -312,8 +315,9 @@ header.navigation {
 }
 
 .footer {
-  $footer-background: desaturate(darken($base-accent-color, 20), 30);
-  $footer-color: white;
+  $footer-background: lightyellow;
+//  desaturate(darken($base-accent-color, 20), 30);
+  $footer-color: black;
   $footer-link-color: transparentize($footer-color, .6);
   $footer-disclaimer-color: transparentize($footer-color, .6);
 
