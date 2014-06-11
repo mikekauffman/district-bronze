@@ -13,28 +13,53 @@
  *= require_self
  */
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700italic);
 @import 'bourbon';
 @import 'base/base';
 @import 'neat';
 
 body {
-  background-color: #4CFCCA;
+  background-color: white;
 }
+
 .body_content {
   @include outer-container;
   min-height: 700px;
+  padding: .5em;
+  padding-left: .05em;
 
   h1 {
     text-align: center;
     font-family: 'Satisfy', cursive;
-    color: white;
-    font-size: 400%;
+    color: #4CFCCA;
+    font-size: 450%;
+    top: 55%;
+    position: absolute;
   }
+}
+
+#left_quote {
+  @include span-columns(3);
+  font-size: 300%;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  padding-top: 3em;
+  padding-left: .5em;
+  background-color: #4CFCCA;
+  min-height: 700px;
+  vertical-align: middle;
+  color: desaturate(darken($base-accent-color, 20), 30);
+}
+
+#main_content_text {
+  @include span-columns(9);
+  @include omega();
 }
 
 h1 {
   font-family: 'Satisfy', cursive;
-  color: white;
+  color: #4CFCCA;
 }
 
 header.navigation {
@@ -72,7 +97,7 @@ header.navigation {
     float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;
-    padding-right: 2em;
+    padding-right: 4em;
 
     h1 {
       max-height: $navigation-height;
