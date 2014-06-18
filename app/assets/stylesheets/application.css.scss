@@ -63,8 +63,11 @@ body {
   padding-left: .5em;
   min-height: 700px;
   vertical-align: middle;
-  color: #0D0B31;
-}
+  color: black;
+  line-height: 95%;
+  .pink_letter {
+    color: deeppink;
+  }}
 
 #main_content_text {
   @include span-columns(9);
