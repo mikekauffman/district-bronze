@@ -67,7 +67,8 @@ body {
   line-height: 95%;
   .pink_letter {
     color: deeppink;
-  }}
+  }
+}
 
 #main_content_text {
   @include span-columns(9);
@@ -367,6 +368,9 @@ header.navigation {
       font-family: 'Satisfy', cursive;
       color: deeppink;
       font-size: 350%;
+      .black_letter {
+        color: black;
+      }
     }
   }
 
