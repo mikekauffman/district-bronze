@@ -16,6 +16,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700italic);
 @import url(http://fonts.googleapis.com/css?family=Lobster+Two);
 @import url(http://fonts.googleapis.com/css?family=Anton);
+@import url(http://fonts.googleapis.com/css?family=Handlee);
 @import 'bourbon';
 @import 'base/base';
 @import 'neat';
@@ -25,14 +26,19 @@ body {
   margin: 0;
 }
 
+.pricing-content {
+  min-width: 1200px;
+  min-height: 700px;
+  background: image_url('beach-heart-wallpapers.jpg') no-repeat fixed;
+  background-size: 100% 100%;
+}
+
 .title_content {
-  min-height: 150px;
+  height: 230px;
   text-align: center;
   padding-bottom: 5%;
   padding-top: 5%;
   margin: 0;
-  background: image_url('beach_photo_dbronze.jpg') no-repeat fixed;
-  background-size: 100%;
 
   h1 {
     font-size: 500%;
@@ -52,11 +58,10 @@ body {
   }
 }
 
-.body_content {
+.home_body_content {
   @include outer-container;
   min-height: 700px;
   padding: .5em;
-  padding-left: .05em;
 }
 
 #left_quote {
@@ -80,7 +85,7 @@ body {
 }
 
 h1 {
-  font-family: 'Satisfy', cursive;
+  font-family: 'Handlee', cursive;
   color: deeppink;
 }
 
@@ -194,10 +199,12 @@ header.navigation {
 
       @include media($horizontal-bar-mode) {
         padding-right: 1em;
+        padding-left: 1em;
       }
 
       &:hover {
         color: $navigation-color-hover;
+        background: desaturate(darken($base-accent-color, 20), 30);
       }
     }
   }
@@ -433,5 +440,105 @@ header.navigation {
     margin: auto;
     max-width: 35em;
     text-align: center;
+  }
+}
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items {
+  $base-body-color: white;
+  $grid-items-background: $base-body-color;
+  $grid-item-background: desaturate($base-accent-color, 30);
+  $grid-item-colors:
+  desaturate(white, 30),
+  white,
+  white,
+  #98C79A,
+  #A7A891,
+  #BDCC97,
+  #979EA0;
+  $grid-item-border-size: 9px;
+  $grid-item-columns: 3.5;
+  $grid-item-big-columns: 8;
+  $grid-item-color: deeppink;
+  $grid-item-height: 20em;
+  padding-left: .5em;
+  padding-top: 2em;
+
+  @include clearfix;
+
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    height: $grid-item-height;
+    background: $grid-item-background;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding-top: 1.5em;
+    text-align: center;
+    font-family: 'Handlee', cursive;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    @for $i from 1 to 8 { // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        margin: 1.5em;
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken(black, 10);
+        &:hover {
+          background-color: black;
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  .grid-item h1 {
+    color: $grid-item-color;
+    font-size: 1.3em;
+    margin-bottom: .4em;
+    &:hover {
+      color: white;
+      cursor: default;
+    }
+  }
+
+  .grid-item p {
+    margin: auto;
+    font-size: 1.3em;
+    color: transparentize($grid-item-color, .3);
+    @include media($medium-screen) {
+      max-width: 70%;
+    }
+    &:hover {
+      color: white;
+      cursor: default;
+    }
+  }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }
+    }
+  }
+
+  .grid-item-image {
+    background: image_url('beach_photo_dbronze.jpg');
+    background-color: $grid-item-background;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
   }
 }

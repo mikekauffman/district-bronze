@@ -9,6 +9,7 @@
 <body>
 <div class="title_content">
   <h1>District <span class="pink_letter">B</span>ronze</h1>
+
   <h2>Organic Airbrush Tanning</h2>
 </div>
 <header class="navigation">
@@ -18,7 +19,7 @@
     <div class="nav">
       <ul id="navigation-menu">
         <li class="nav-link"><a href="javascript:void(0)">About</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Pricing</a></li>
+        <li class="nav-link"><a href="/menu">Pricing</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Scheduling</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Before and After Photos</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Prepping</a></li>
@@ -27,8 +28,9 @@
     </div>
   </div>
 </header>
-
-<%= yield %>
+<div class="body_content">
+  <%= yield %>
+</div>
 <footer class="footer">
   <div class="footer-logo">
     <h1>District <span class="black_letter">B</span>ronze</h1>
